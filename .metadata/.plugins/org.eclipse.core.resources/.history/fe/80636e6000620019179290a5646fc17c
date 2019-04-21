@@ -1,7 +1,0 @@
-package mpi;
-
-public class mpi {
-		public static void main(String [] args) {
-			MPI.init();
-		}
-}

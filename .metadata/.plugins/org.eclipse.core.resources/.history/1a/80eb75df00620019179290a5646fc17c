@@ -1,8 +1,0 @@
-package mpi;
-
-public class mpi {
-		public static void main(String [] args) throws Exception {
-			 MPI.Init(args);
-			 
-		}
-}

@@ -1,7 +1,0 @@
-package temp;
-
-public class temp_class {
-	public static void main(String [] args) {
-		
-	}
-}

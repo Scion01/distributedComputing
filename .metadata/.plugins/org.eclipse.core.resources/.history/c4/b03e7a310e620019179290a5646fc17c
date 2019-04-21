@@ -1,7 +1,0 @@
-package temp;
-
-public interface rmi_intf {
-	public string (String s) throws Exception{
-		
-	}
-}

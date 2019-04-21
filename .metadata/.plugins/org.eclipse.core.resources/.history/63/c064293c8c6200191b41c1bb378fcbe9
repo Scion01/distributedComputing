@@ -1,7 +1,0 @@
-package revModule;
-
-public class imple {
-	public String reverse_string(String s) {
-		return s.toUpperCase();
-	}
-}
