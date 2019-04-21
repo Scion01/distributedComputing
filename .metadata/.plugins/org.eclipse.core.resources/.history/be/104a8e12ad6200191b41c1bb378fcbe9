@@ -1,0 +1,30 @@
+package temp;
+
+import mpi.MPI;
+
+public class temp_mpi {
+		public static void main(String [] args)throws Exception {
+			MPI.Init(args);
+			int rank = MPI.COMM_WORLD.Rank();
+			int size = MPI.COMM_WORLD.Size();
+			int [] send = new int[4];
+			int [] rec = new int[4];
+			int root=0;
+			if(rank == root) {
+				for(int i=0;i<size;++i)
+					send[i]=10*(i+1);
+				System.out.println("Before scatter, with root: ");
+				for(int i=0;i<size;++i)
+					System.out.printf("%d ",send[i]);
+			}
+			MPI.COMM_WORLD.Scatter(send, 0, 1, MPI.INT, rec, 0, 1, MPI.INT, root);
+			rec[0]=rec[0]*2;
+			
+			MPI.COMM_WORLD.Gather(rec, 0, 1, MPI.INT, send, 0, 1, MPI.INT, root);
+			if(rank==root) {
+				System.out.println("After scatter, with root: ");
+				for(int i=0;i<size;++i)
+					System.out.printf("%d ",rec[i]);
+			}
+		}
+}

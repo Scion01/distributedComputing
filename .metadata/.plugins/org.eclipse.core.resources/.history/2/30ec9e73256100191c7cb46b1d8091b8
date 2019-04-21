@@ -1,0 +1,12 @@
+import java.rmi.server.UnicastRemoteObject;
+
+//package rmi;
+
+public class serverimp  extends UnicastRemoteObject implements serverintf{
+	public ServerImpl() throws RemoteException { }
+	@Override
+	public String upper(String s) throws Exception {
+		return s.toUpperCase();
+	}
+	
+}

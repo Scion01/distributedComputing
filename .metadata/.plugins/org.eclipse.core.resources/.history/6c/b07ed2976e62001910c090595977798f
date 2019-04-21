@@ -1,0 +1,21 @@
+package temp_pub_sub;
+
+import javax.jms.MessageProducer;
+import javax.jms.Session;
+import javax.jms.Topic;
+
+import org.apache.activemq.ActiveMQConnection;
+import org.apache.activemq.ActiveMQConnectionFactory;
+
+public class pub {
+		public static void main(String [] args) throws Exception {
+			String url = ActiveMQConnection.DEFAULT_BROKER_URL;
+			ActiveMQConnectionFactory fac = new ActiveMQConnectionFactory(url);
+			//the above is important, passing of url
+			ActiveMQConnection con = (ActiveMQConnection) fac.createConnection();
+			Session session = con.createSession(false,Session.AUTO_ACKNOWLEDGE);
+			//the above is important
+			Topic topic = session.createTopic("sample");
+			MessageProducer porducer =  session.createProducer(topic);//destination is the topic
+		}
+}

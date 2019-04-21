@@ -1,0 +1,34 @@
+package elections;
+
+import java.util.Scanner;
+
+public class bully {
+	public static String menuString = "1. Revive a process\n2. Kill a process\n3. Send a message to coord\n";
+	public static String inputMsg = "Enter the number of processes!\n";
+	public static String util1 = "%d Processes are active!\n";
+	public static void init( int [] active, int [] processes, int n) {
+		for(int i=0;i<n;++i) {
+			active[i]=1;
+			processes[i]=i+1;
+		}
+	}
+	public static void main(String [] args) {
+		boolean run = true;
+		System.out.print(inputMsg);
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int [] active = new int[n];
+		int [] processes = new int[n];
+		init(active, processes, n);
+		int option;
+		for(int i=0;i<n;++i) {
+			System.out.println(active[i]);
+			System.out.println(processes[i]);
+		}
+		System.out.printf(util1,n);
+		while(run) {
+			System.out.print(menuString);
+			option = s.nextInt();
+		}
+	}
+}

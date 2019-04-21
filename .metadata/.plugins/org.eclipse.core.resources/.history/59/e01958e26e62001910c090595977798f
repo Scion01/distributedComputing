@@ -1,0 +1,7 @@
+package temp_pub_sub;
+
+public class sub {
+	public static void main(String [] args) {
+		
+	}
+}

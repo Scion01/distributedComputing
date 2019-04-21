@@ -1,0 +1,30 @@
+package mpi;
+
+public class mpi {
+		public static void main(String [] args) throws Exception {
+			MPI.Init(args);
+			int rank = MPI.COMM_WORLD.Rank();
+			int size = MPI.COMM_WORLD.Size();
+			int root =0;
+			int [] buff = new int[size];
+			int [] out = new int[size];
+			if(rank == root) {
+				System.out.println("Root initializing buffer!");
+				buff[0] =10;
+				buff[1] =20;
+				buff[2] =30;
+				buff[3] =40;
+				System.out.println("Buffer init done!");
+			}
+			MPI.COMM_WORLD.Scatter(buff, 0, 1, MPI.INT, out, 0, 1,MPI.INT,root);
+			//the above is important, look at the type
+			System.out.println("process with rank "+rank+" has "+out[0]);
+			out[0]*=2;
+			MPI.COMM_WORLD.Gather(out, 0, 1, MPI.INT, buff, 0, 1, MPI.INT, root);
+			if(rank == root) {
+				System.out.println("root has:");
+				for(int i=0;i<size;++i)
+						System.out.printf("%d ",buff[i]);
+			}
+		}
+}

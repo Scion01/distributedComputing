@@ -1,0 +1,7 @@
+package elections;
+
+public class bully {
+	public static void main(String [] args) {
+		
+	}
+}

@@ -1,0 +1,15 @@
+package temp_pub_sub;
+
+import javax.jms.Session;
+
+import org.apache.activemq.ActiveMQConnection;
+import org.apache.activemq.ActiveMQConnectionFactory;
+
+public class pub {
+		public static void main(String [] args) throws Exception {
+			String url = ActiveMQConnection.DEFAULT_BROKER_URL;
+			ActiveMQConnectionFactory fac = new ActiveMQConnectionFactory();
+			ActiveMQConnection con = (ActiveMQConnection) fac.createConnection();
+			Session session = new 
+		}
+}

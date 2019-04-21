@@ -1,0 +1,16 @@
+package elections;
+
+import java.util.Scanner;
+
+public class bully {
+	public static String menuString = "1. Revive a process\n2. Kill a process\n3. Send a message to coord\n";
+	public static void main(String [] args) {
+		boolean run = true;
+		int n;
+		while(run) {
+			System.out.print(menuString);
+			Scanner s = new Scanner(System.in);
+	        String name = s.nextLine();                
+		}
+	}
+}

@@ -1,0 +1,11 @@
+package temp;
+
+import java.net.InetAddress;
+import java.net.Socket;
+
+public class temp_class {
+	public static void main(String [] args) {
+		InetAddress ip = InetAddress.getByName("localhost");
+		Socket client= new Socket(ip, 10001);
+	}
+}

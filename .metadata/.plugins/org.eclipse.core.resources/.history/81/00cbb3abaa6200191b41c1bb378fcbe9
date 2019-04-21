@@ -1,0 +1,10 @@
+package temp;
+
+import mpi.MPI;
+
+public class temp_mpi {
+		public static void main(String [] args)throws Exception {
+			MPI.Init(args);
+			
+		}
+}

@@ -1,0 +1,30 @@
+package temp_pub_sub;
+
+import javax.jms.Message;
+import javax.jms.MessageConsumer;
+import javax.jms.MessageListener;
+import javax.jms.Session;
+import javax.jms.Topic;
+
+import org.apache.activemq.ActiveMQConnection;
+import org.apache.activemq.ActiveMQConnectionFactory;
+
+public class sub1 {
+	public static void main(String [] args) throws Exception{
+		String url = ActiveMQConnection.DEFAULT_BROKER_URL;
+		ActiveMQConnectionFactory fac = new ActiveMQConnectionFactory(url);
+		ActiveMQConnection con = (ActiveMQConnection) fac.createConnection();
+		con.start();
+		Session session = con.createSession(false, Session.AUTO_ACKNOWLEDGE);
+		Topic topic = session.createTopic("ASTRALIS");
+		MessageConsumer consumer = session.createConsumer(topic);
+		MessageListener listener = new MessageListener() {
+			
+			@Override
+			public void onMessage(Message arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+	}
+}

@@ -1,0 +1,39 @@
+package temp_pub_sub;
+
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageConsumer;
+import javax.jms.MessageListener;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+import javax.jms.Topic;
+
+import org.apache.activemq.ActiveMQConnection;
+import org.apache.activemq.ActiveMQConnectionFactory;
+public class sub {
+	public static void main(String [] args) throws Exception {
+		String url = ActiveMQConnection.DEFAULT_BROKER_URL;
+		ActiveMQConnectionFactory fac = new ActiveMQConnectionFactory(url);
+		ActiveMQConnection con = (ActiveMQConnection)fac.createConnection();//the function is createConnection
+		con.start();//this is very important as well
+		Session session = con.createSession(false, Session.AUTO_ACKNOWLEDGE);
+		Topic topic = session.createTopic("sample"); 
+		MessageConsumer consumer = session.createConsumer(topic);
+		//MessageConsumer and MessageProducer
+		MessageListener listener = new MessageListener() {
+			
+			@Override
+			public void onMessage(Message message) {
+				try {
+					System.out.println("From producer: "+((TextMessage) message).getText());
+				} catch (JMSException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		};
+		consumer.setMessageListener(listener);
+		//producer sends the message and listener is attached to consumer
+	}
+}

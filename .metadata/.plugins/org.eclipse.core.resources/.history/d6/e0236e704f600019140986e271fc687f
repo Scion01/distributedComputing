@@ -1,0 +1,17 @@
+package udp;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
+import java.util.Scanner;
+
+public class client {
+	public static void main(String [] args) throws SocketException {
+		Scanner sc = new Scanner(System.in);
+		String input = sc.nextLine();
+		DatagramSocket scoekt = new DatagramSocket();
+		byte [] senddata = input.getBytes();
+		DatagramPacket packet = new DatagramPacket(senddata, senddata.length, 127.0.0.1, 9808);
+		
+	}
+}

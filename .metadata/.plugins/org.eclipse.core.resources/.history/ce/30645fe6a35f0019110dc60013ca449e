@@ -1,0 +1,32 @@
+package elections;
+
+import java.util.Scanner;
+
+public class ring {
+	public static String menuString = "1. Revive a process\n2. Kill a process\n3. Send a message to coord\n4. exit!\n";
+	public static String inputMsg = "Enter the number of processes!\n";
+	public static String util1 = "%d Processes are active!\n";
+	public static String util2 = "Which Process to bring up?\n";
+	public static String util3 = "Nigga u high? its already up!\n";
+	public static String util4 = "%d Process calling election now!\n";
+	public static String util5 = "Which Process to bring down?\n";
+	public static String util6 = "%d is down!\n";
+	public static String util7 = "%d Sending message to coordinator!\n";
+	public static String util8 = "%For what is dead may never die!\n";
+	public static String util9 = "%d is the Coordinator!\n";
+	public static String util10 = "%d replied Ok\n";
+	public static String util11 = "Which Process should msg the coordinator?\n";
+	public static String util12 = "Enter the pID for process %d\n";
+	
+	public static void init( int [] active, int [] processes, int n) {
+		for(int i=0;i<n;++i) {
+			active[i]=1;
+			System.out.printf(util12,i+1);
+			Scanner sc = new Scanner(System.in);
+			processes[i]=sc.nextInt();
+		}
+	}
+	public static void main(String [] args) {
+		
+	}
+}

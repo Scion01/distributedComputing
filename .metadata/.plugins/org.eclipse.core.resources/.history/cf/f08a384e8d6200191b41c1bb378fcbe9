@@ -1,0 +1,12 @@
+package revModule;
+
+import org.omg.CORBA.ORB;
+import org.omg.CORBA.Object;
+
+public class client {
+	public static void main(String [] args)throws Exception {
+			ORB orb = ORB.init(args,null);
+			Object objref = orb.resolve_initial_references("NameService");
+	}
+
+}

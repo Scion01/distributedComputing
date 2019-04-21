@@ -1,0 +1,24 @@
+//package temp;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+
+public class udp_server {
+	public static void main(String [] args) throws Exception {
+		DatagramSocket server = new DatagramSocket(5001);
+		while(true) {
+			byte [] rec= new byte[1024];
+			byte [] send= new byte[1024];
+			DatagramPacket packet = new DatagramPacket(rec, 1024);
+			//the above is important, its a generic packet that is received 
+			server.receive(packet);
+			String [] parts = new String(rec).split(" ");
+			int add  = Integer.parseInt(parts[0].split("/'")[1])+Integer.parseInt(parts[1]);
+			String change  = "Addition: "+String.valueOf(add);
+			DatagramPacket spacket = new DatagramPacket(change.getBytes(), change.length(), packet.getAddress(),packet.getPort());
+			//this is very important as well
+			server.send(spacket);
+		}
+	}
+}	

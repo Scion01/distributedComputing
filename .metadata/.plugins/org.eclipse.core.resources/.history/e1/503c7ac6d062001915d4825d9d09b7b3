@@ -1,0 +1,25 @@
+package temp_tcp;
+
+import java.io.BufferedInputStream;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class server {
+	public static void main (String [] args) throws Exception {
+		ServerSocket socket = new ServerSocket(5544);
+		while(true) {
+			Socket con = socket.accept();
+			Scanner sc = new Scanner(new InputStreamReader(con.getInputStream()));
+			//this is very important, new inputstreamreader()
+			String input = sc.nextLine();
+			input = input.toUpperCase();
+			DataOutputStream outfromserver = new DataOutputStream(con.getOutputStream());
+			outfromserver.writeBytes(input);
+			outfromserver.flush();
+			con.close();
+		}
+	}
+}

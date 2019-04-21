@@ -1,0 +1,10 @@
+package pub_sub;
+import javax.jms.*;
+import org.apache.activemq.ActiveMQConnection;
+import org.apache.activemq.ActiveMQConnectionFactory;
+
+public class pub_sub {
+	public static void main(String [] args) {
+		System.out.println("b");
+	}
+}

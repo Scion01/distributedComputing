@@ -1,0 +1,19 @@
+package temp;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class temp_class {
+	public static void main(String [] args) throws Exception {
+		//InetAddress ip = InetAddress.getByName("localhost");
+		Socket client= new Socket();
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		DataOutputStream outtoserver = new DataOutputStream(client.getOutputStream());
+		DataInputStream infromserver = new DataInputStream(client.getInputStream());
+		
+	}
+}

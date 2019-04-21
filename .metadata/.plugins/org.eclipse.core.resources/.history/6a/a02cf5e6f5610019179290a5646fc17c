@@ -1,0 +1,21 @@
+//package temp;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.util.Scanner;
+
+public class udp_client {
+	public static void main(String [] args)throws Exception {
+		Scanner sc = new Scanner(System.in);
+		String input = sc.nextLine();
+		DatagramSocket client= new DatagramSocket();//this is important
+		DatagramPacket packet = new DatagramPacket(input.getBytes(), input.length(), InetAddress.getByName("localhost"), 5001);
+		client.send(packet);
+		byte [] out = new byte[1024];
+		DatagramPacket rpacket = new DatagramPacket(out, 1024,InetAddress.getByName("localhost"), 5001);
+		client.receive(rpacket);
+		System.out.println("Response from server: "+new String(out));
+		client.close();
+	}
+}

@@ -1,0 +1,10 @@
+//package rmi;
+
+public class serverimp  extends UnicastRemoteObject implements serverintf{
+
+	@Override
+	public String upper(String s) throws Exception {
+		return s.toUpperCase();
+	}
+	
+}

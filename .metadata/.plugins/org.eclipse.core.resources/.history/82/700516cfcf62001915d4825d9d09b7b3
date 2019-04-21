@@ -1,0 +1,11 @@
+package temp_tcp;
+
+import java.net.Socket;
+
+public class client {
+		public static void main(String [] args) throws Exception {
+			String input = "nishant"+'\n';
+			Socket client = new 
+			client.connect(5544);
+		}
+}

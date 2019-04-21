@@ -1,0 +1,13 @@
+package revModule;
+
+import org.omg.CORBA.ORB;
+import org.omg.PortableServer.POA;
+import org.omg.PortableServer.POAHelper;
+
+public class server {
+	public static void main(String [] args) throws Exception{
+		ORB orb = ORB.init(args,null);
+		POA poaroot = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
+		
+	}
+}
