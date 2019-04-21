@@ -1,7 +1,7 @@
 ## Distributed Computing Programs
 **These are a set of programs which implement _distributed computing_ in java.**
 ### Description:
-Tables
+
 | Program | Description |
 | --- | --- |
 | TCP Client Server Socket Communication | As the name suggests, client and server programs TCP socket programming. | 
